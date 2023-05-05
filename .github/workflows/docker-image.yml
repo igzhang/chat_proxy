@@ -28,4 +28,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ GITHUB_ACTOR_ID }}
+        tags: igzhang/$GITHUB_ACTOR_ID
