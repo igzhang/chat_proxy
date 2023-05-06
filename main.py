@@ -8,6 +8,7 @@ from pydantic import BaseModel
 
 
 openai.proxy = os.getenv('proxy')
+chatgpt_model_version = os.getenv('model') or "gpt-3.5-turbo"
 app = FastAPI()
 
 messages = []
@@ -45,8 +46,8 @@ async def chat(item: Item):
 
     try:
         completion = await openai.ChatCompletion.acreate(
-        model="gpt-3.5-turbo",
-        messages=messages
+            model=chatgpt_model_version,
+            messages=messages
         )
     except openai.error.APIConnectionError as ex:
         traceback.print_exception(type(ex), ex, ex.__traceback__)

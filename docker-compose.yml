@@ -1,0 +1,12 @@
+services:
+  web:
+    image: igzhang/chat_proxy_web:0.0.1
+    ports:
+      - "7777:80"
+  backend:
+    image: igzhang/chat_proxy:0.0.1
+    ports:
+      - "8080:8080"
+    environment:
+      - OPENAI_API_KEY=xxx
+      - proxy=http://xxx
